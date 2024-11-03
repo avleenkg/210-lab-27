@@ -7,19 +7,28 @@
 #include <vector>
 #include <string>
 #include <tuple>
+#include <cstdlib>
 using namespace std;
 
 
 int main() {
+    srand(time(0));
+    int randlevel = rand() % 11;
     // declarations
-    tuple<int, string, string> VInfo;
     map<string, tuple<int, string, string>> villagers;
+
+    tuple<int, string, string> v1(randlevel, "horse", "NEIGH");
+    tuple<int, string, string> v2(randlevel, "dog", "barkbark");
+    tuple<int, string, string> v3(randlevel, "cat", "meoww");
+    tuple<int, string, string> v4(randlevel, "lizard", "Geico gets you 50 percent off car insurance");
+    tuple<int, string, string> v5(randlevel, "crow", "I will steal your sandwich and poop on your car");
+    tuple<int, string, string> v6(randlevel, "cow", "Please don't turn me into steak.");
 
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
-    villagerColors["Audie"] = {"Orange", "Yellow", "Red"};
-    villagerColors["Raymond"] = {"Black", "Gray", "White"};
-    villagerColors.insert({"Marshal", {"Blue", "White", "Black"}});
+    villagers["Audie"] = {"Orange", "Yellow", "Red"};
+    villagers["Raymond"] = {"Black", "Gray", "White"};
+    villagers.insert({"Marshal", v1});
 
     // access the map using a range-based for loop
     cout << "Villagers and their favorite colors (range-based for loop):" << endl;
