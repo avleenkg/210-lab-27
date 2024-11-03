@@ -6,18 +6,14 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <tuple>
 using namespace std;
 
-struct VInfo {
-    int fshiplevel;
-    string species;
-    string cphrase;
-
-};
 
 int main() {
     // declarations
-    map<string, VInfo> villagers;
+    tuple<int, string, string> VInfo;
+    map<string, tuple<int, string, string>> villagers;
 
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
