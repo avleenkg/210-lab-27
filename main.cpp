@@ -11,7 +11,8 @@
 using namespace std;
 
 void addV(map<string, tuple<int, string, string>>&);
-void 
+void deleteV(map<string, tuple<int, string, string>>&);
+void output(const map<string, tuple<int, string, string>>&);
 
 int main() {
     srand(time(0));
@@ -75,4 +76,32 @@ int main() {
     cout << "Size after clear: " << villagerColors.size() << endl;
 
     return 0;
+}
+void addV(map<string, tuple<int, string, string>>& villagers) {
+    string name, species, cphrase;
+    int level;
+    cout << "Villager name: ";
+    cin >> name;
+    cout << "Friendship level: ";
+    cin >> level; 
+    cout << "Species: ";
+    cin.ignore();
+    getline(cin, species);
+    cout << "Catchphrase: ";
+    getline(cin, cphrase);
+
+    villagers[name] = make_tuple(level, species, cphrase);
+    cout << name << "added.\n";
+}
+void deleteV(map<string, tuple<int, string, string>>& villagers) {
+    string name;
+    cout << "Enter villager name to delete: ";
+    cin >> name;
+
+    if(villagers.erase(name)) { //if this return true/if the name is found and deleted
+        cout << name << " deleted.\n";
+    }
+    else {
+        cout << name << " not found.\n";
+    }
 }
