@@ -13,9 +13,9 @@ using namespace std;
 void addV(map<string, tuple<int, string, string>>&);
 void deleteV(map<string, tuple<int, string, string>>&);
 void output(const map<string, tuple<int, string, string>>&);
-void increase
-void decrease
-void search
+void increase(map<string, tuple<int, string, string>>&);
+void decrease(map<string, tuple<int, string, string>>&);
+void search(map<string, tuple<int, string, string>>&);
 
 int main() {
     srand(time(0));
@@ -117,4 +117,17 @@ void output(const map<string, tuple<int, string, string>>& villagers) {
         cout << endl;
     }
 }
+void increase(map<string, tuple<int, string, string>>& villagers){
+    string name;
+    cout << "Enter villager name to increase friendship: ";
+    cin >> name;
 
+    auto it = villagers.find(name);
+    if (it != villagers.end()) {
+        
+    }
+
+}
+
+void decrease(map<string, tuple<int, string, string>>&);
+void search(map<string, tuple<int, string, string>>&);
