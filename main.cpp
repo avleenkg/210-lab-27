@@ -13,6 +13,9 @@ using namespace std;
 void addV(map<string, tuple<int, string, string>>&);
 void deleteV(map<string, tuple<int, string, string>>&);
 void output(const map<string, tuple<int, string, string>>&);
+void increase
+void decrease
+void search
 
 int main() {
     srand(time(0));
@@ -92,6 +95,7 @@ void addV(map<string, tuple<int, string, string>>& villagers) {
 
     villagers[name] = make_tuple(level, species, cphrase);
     cout << name << "added.\n";
+    output(villagers);
 }
 void deleteV(map<string, tuple<int, string, string>>& villagers) {
     string name;
@@ -104,4 +108,13 @@ void deleteV(map<string, tuple<int, string, string>>& villagers) {
     else {
         cout << name << " not found.\n";
     }
+    output(villagers);
 }
+void output(const map<string, tuple<int, string, string>>& villagers) {
+    cout << "Villager details:\n";
+    for (auto i : villagers){
+        cout << i.first << " [" << get<0>(i.second) << ", " << get<1>(i.second) << ", " << get<2>(i.second) << "]";
+        cout << endl;
+    }
+}
+
