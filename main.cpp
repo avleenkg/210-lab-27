@@ -5,11 +5,19 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <string>
 using namespace std;
+
+struct VInfo {
+    int fshiplevel;
+    string species;
+    string cphrase;
+
+};
 
 int main() {
     // declarations
-    map<string, vector<string>> villagerColors;
+    map<string, VInfo> villagers;
 
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
