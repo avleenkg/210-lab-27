@@ -10,6 +10,8 @@
 #include <cstdlib>
 using namespace std;
 
+void addV(map<string, tuple<int, string, string>>&);
+void 
 
 int main() {
     srand(time(0));
@@ -25,14 +27,16 @@ int main() {
     tuple<int, string, string> v6(randlevel, "cow", "Please don't turn me into steak.");
 
     // insert elements into the map
-    // note how the right-hand side of the assignment are the vector elements
-    villagers["Audie"] = {"Orange", "Yellow", "Red"};
-    villagers["Raymond"] = {"Black", "Gray", "White"};
     villagers.insert({"Marshal", v1});
+    villagers.insert({"Audie", v2});
+    villagers.insert({"Raymond", v3});
+    villagers.insert({"Isabella", v4});
+    villagers.insert({"John", v5});
+    villagers.insert({"Bob", v6});
 
     // access the map using a range-based for loop
     cout << "Villagers and their favorite colors (range-based for loop):" << endl;
-    for (auto pair : villagerColors) {
+    for (auto pair : villagers) {
         cout << pair.first << ": ";
         for (auto color : pair.second)
             cout << color << " ";
