@@ -114,8 +114,10 @@ void increase(map<string, tuple<int, string, string>>& villagers){
 
     auto it = villagers.find(name);
     if (it != villagers.end()) {
-        if(get<0>(it->second) < 10){
-            get<0>(it->second)++;
+        int flevel = get<0>(it->second);
+        if( flevel < 10){
+            flevel++;
+            villagers[name] = make_tuple(flevel, get<1>(it->second), get<2>(it->second));
         }
         else {
             cout << name << "'s frienship level is already 10.\n";
@@ -135,8 +137,10 @@ void decrease(map<string, tuple<int, string, string>>& villagers){
 
     auto it = villagers.find(name);
     if (it != villagers.end()) {
-        if(get<0>(it->second) > 0){
-            get<0>(it->second)--;
+        int flevel = get<0>(it->second);
+        if(flevel > 0){
+            flevel--;
+            villagers[name] = make_tuple(flevel, get<1>(it->second), get<2>(it->second));
         }
         else {
             cout << name << "'s frienship level is already 0.\n";
