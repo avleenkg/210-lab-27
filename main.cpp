@@ -20,16 +20,54 @@ void search(map<string, tuple<int, string, string>>&);
 int main() {
     // declarations
     map<string, tuple<int, string, string>> villagers;
+    bool cont = true;
 
-    cout << "-------Villager Map-------\n";
-    cout << "\t1. Add Villager\n";
-    cout << "\t2. Delete Villager\n";
-    cout << "\t3. Increase Friendship\n";
-    cout << "\t1. Add Villager\n";
-    cout << "\t1. Add Villager\n";
+    while (cont) {
+        cout << "-------Villager Map-------\n";
+        cout << "\t1. Add Villager\n";
+        cout << "\t2. Delete Villager\n";
+        cout << "\t3. Increase Friendship\n";
+        cout << "\t4. Decrease Friendship\n";
+        cout << "\t5. Search for Villager\n";
+        cout << "\t6. Quit\n";
 
+        cout << endl;
 
+        cout << "Enter your choice: ";
+        int entry;
+        cin >> entry;
+        while (entry < 1 or entry > 6) {
+            cout << "Error. Enter a valid number: ";
+            cin >> entry;
+        }
 
+        switch (entry) {
+            case 1: 
+                addV(villagers);
+                cout << endl;
+                break;
+            case 2: 
+                deleteV(villagers);
+                cout << endl;
+                break;
+            case 3: 
+                increase(villagers);
+                cout << endl;
+                break;
+            case 4: 
+                decrease(villagers);
+                cout << endl;
+                break;
+            case 5: 
+                search(villagers);
+                cout << endl;
+                break;
+            case 6: 
+                cont = false;
+                cout << "Exiting....\n";
+                break;
+        }
+    }
     return 0;
 }
 void addV(map<string, tuple<int, string, string>>& villagers) {
@@ -46,7 +84,7 @@ void addV(map<string, tuple<int, string, string>>& villagers) {
     getline(cin, cphrase);
 
     villagers[name] = make_tuple(level, species, cphrase);
-    cout << name << "added.\n";
+    cout << name << "added.\n\n";
     output(villagers);
 }
 void deleteV(map<string, tuple<int, string, string>>& villagers) {
@@ -55,10 +93,10 @@ void deleteV(map<string, tuple<int, string, string>>& villagers) {
     cin >> name;
 
     if(villagers.erase(name)) { //if this return true/if the name is found and deleted
-        cout << name << " deleted.\n";
+        cout << name << " deleted.\n\n";
     }
     else {
-        cout << name << " not found.\n";
+        cout << name << " not found.\n\n";
     }
     output(villagers);
 }
